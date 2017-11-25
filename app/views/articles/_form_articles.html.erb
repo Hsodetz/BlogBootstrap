@@ -1,0 +1,21 @@
+<h1> <%= titulo_formulario_articles %> </h1>
+
+
+
+<%= form_for @article do |f| %>
+
+   <div class="form-group">
+    <%= f.label :titulo  %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :texto  %>
+    <%= f.text_area :text, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit btn_formulario_articles, class: "btn btn-primary" %>
+  </div>
+
+<% end %>

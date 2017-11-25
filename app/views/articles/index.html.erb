@@ -1,0 +1,36 @@
+<br>
+
+<h1><%= @titulo %></h1>
+
+<%= render 'partials/flash_messages_success' %>
+
+<table class="table table-striped table-responsive table-hover table-condensed text-center">
+	
+	<thead class="thead-inverse">
+		<th class="text-center">Id</th>		
+		<th class="text-center">Titulo</th>
+		<th class="text-center">Texto</th>
+		<th class="text-center"> Acciones </th>
+		
+	</thead>
+
+	<tbody>
+		<% if (@articles.size <= 1) %>
+			<p class="text-right"><span class="badge badge-info"> <%= @articles.size %> Articulo</span></p>
+		<% else %>		
+			<p class="text-right"><span class="badge badge-info"> <%= @articles.size %> Articulos</span></p>
+		<% end %>
+
+		<% @articles.each do |article| %>
+		<tr>
+			<td> <%= article.id %> </td>
+			<td> <%= article.title %> </td>
+			<td> <%= article.text %> </td>
+			<td> <%= link_to("Visualizar", article, class: "btn btn-primary btn-sm") %> </td>
+			<td> <%= link_to("Editar", edit_article_path(article), class: "btn btn-warning btn-sm") %> </td>
+			<td> <%= link_to("Eliminar", article_path(article), method: :delete, class: "btn btn-danger btn-sm") %> </td>
+		</tr>
+		<% end %>
+	</tbody>
+
+</table>

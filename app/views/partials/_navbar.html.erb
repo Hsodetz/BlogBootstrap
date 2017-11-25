@@ -1,0 +1,39 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <a class="navbar-brand" href="#">Blog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Inicio', articles_path, class: 'nav-link'  %> 
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Articulo Nuevo', new_article_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Usuarios
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to("Crear Usuarios", new_admin_registration_path , class: 'dropdown-item') %>
+          <%= link_to("Iniciar Sesion", new_admin_session_path , class: 'dropdown-item') %>
+          <%= link_to("Cerrar Sesion", destroy_admin_session_path , method: :delete, class: 'dropdown-item') %>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+
+    <% if admin_signed_in? %>
+    <span class="navbar-text">
+      Bienvenid@ <%= current_admin.name %>
+    </span>
+    <% end %>
+    
+  </div>
+</nav>
+

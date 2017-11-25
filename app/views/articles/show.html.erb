@@ -1,0 +1,18 @@
+
+<br>
+
+<%= render 'partials/flash_messages_success' %>
+
+<div class="card">
+  <div class="card-header">
+    Viendo el <%= @article.title %>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title"><%= @article.title %></h4>
+    <p class="card-text"><%= @article.text %></p>
+    <p>Articulo creado por <span class="badge badge-info"> <%= current_admin.name %> </span></p>
+    <p> <%= current_admin.name %> has ingresado al sistema <span class="badge badge-info"> <%= current_admin.sign_in_count %> Veces </span> </p>
+    <%= link_to "Regresar", :back, class: "btn btn-primary btn-sm" %>
+    <%= link_to("Editar", edit_article_path , class: 'btn btn-warning btn-sm') %> 
+  </div>
+</div>
